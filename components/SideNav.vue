@@ -13,14 +13,8 @@
   </div>
   <div class="share">
    <p>シェア</p>
-   <validation-observer ref="obs" v-slot="ObserverProps">
-    <validation-provider v-slot="{ errors }" rules="required|max:120">
-     <textarea v-model="content" name="投稿内容"></textarea>
-     <div class="error">{{ errors[0] }}</div>
-    </validation-provider>
-    <button @click="send" :disabled="ObserverProps.invalid || !ObserverProps.validated"
-     class="share_button">シェアする</button>
-   </validation-observer>
+   <textarea v-model="content" name="投稿内容"></textarea>
+   <button @click="send" class="share_button">シェアする</button>
   </div>
  </div>
 </template>

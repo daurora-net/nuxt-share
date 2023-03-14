@@ -20,14 +20,8 @@
       <p class="comment-text">{{ comment.comment }}</p>
      </div>
     </div>
-    <validation-observer ref="obs" v-slot="ObserverProps">
-     <validation-provider v-slot="{ errors }" rules="required|max:120">
-      <input v-model="content" type="text" name="コメント">
-      <div class="error">{{ errors[0] }}</div>
-     </validation-provider>
-     <button @click="postComment" :disabled="ObserverProps.invalid || !ObserverProps.validated"
-      class="share_button">コメント</button>
-    </validation-observer>
+    <input v-model="content" type="text" name="コメント">
+    <button @click="postComment" class="share_button">コメント</button>
    </div>
   </div>
  </div>
