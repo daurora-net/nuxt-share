@@ -40,7 +40,7 @@ export default {
  methods: {
   async fetchPost() {
    const { data } = await this.$axios.get(
-    `http://ec2-18-179-28-155.ap-northeast-1.compute.amazonaws.com/api/v1/post/${this.$route.params.id}`
+    `http://18.179.28.155/api/v1/post/${this.$route.params.id}`
    );
    this.post = data.post;
   },
@@ -52,7 +52,7 @@ export default {
   },
   async postComment() {
    const { data } = await this.$axios.post(
-    "http://ec2-18-179-28-155.ap-northeast-1.compute.amazonaws.com/api/v1/comment",
+    "http://18.179.28.155/api/v1/comment",
     {
      post_id: this.post.id,
      user_id: this.uid,
@@ -65,7 +65,7 @@ export default {
   async like() {
 
    const { data } = await this.$axios.post(
-    "http://ec2-18-179-28-155.ap-northeast-1.compute.amazonaws.com/api/v1/like",
+    "http://18.179.28.155/api/v1/like",
     {
      post_id: this.post.id,
      user_id: this.uid,
@@ -78,7 +78,7 @@ export default {
     (like) => like.user_id === this.uid
    );
    await this.$axios.delete(
-    `http://ec2-18-179-28-155.ap-northeast-1.compute.amazonaws.com/api/v1/like/${findLike.id}`
+    `http://18.179.28.155/api/v1/like/${findLike.id}`
    );
 
    const findLikeIdx = this.post.likes.findIndex(
@@ -87,7 +87,7 @@ export default {
    this.post.likes.splice(findLikeIdx, 1);
   },
   async deletePost(event) {
-   await this.$axios.delete(`http://ec2-18-179-28-155.ap-northeast-1.compute.amazonaws.com/api/v1/post/${event.id}`);
+   await this.$axios.delete(`http://18.179.28.155/api/v1/post/${event.id}`);
    this.$router.push("/");
   },
  },

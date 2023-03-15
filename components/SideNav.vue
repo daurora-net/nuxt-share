@@ -45,7 +45,7 @@ export default {
 
    firebase.auth().onAuthStateChanged(async (user) => {
     const { data } = await this.$axios.post(
-     "http://ec2-18-179-28-155.ap-northeast-1.compute.amazonaws.com/api/v1/post",
+     "http://18.179.28.155/api/v1/post",
      {
       user_id: user.uid,
       content: this.content,

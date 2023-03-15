@@ -37,7 +37,7 @@ export default {
       id: data.user.uid,
       name: this.name,
      };
-     this.$axios.post("http://ec2-18-179-28-155.ap-northeast-1.compute.amazonaws.com/api/v1/user", sendData);
+     this.$axios.post("http://18.179.28.155/api/v1/user", sendData);
      this.$router.replace("/login");
     })
     .catch((error) => {

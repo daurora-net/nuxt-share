@@ -27,7 +27,7 @@ export default {
  methods: {
   async getPostData() {
    const { data } = await this.$axios.get(
-    "http://ec2-18-179-28-155.ap-northeast-1.compute.amazonaws.com/api/v1/post"
+    "http://18.179.28.155/api/v1/post"
    );
    this.posts = data.posts;
   },
@@ -39,7 +39,7 @@ export default {
   },
   async like(post) {
    const { data } = await this.$axios.post(
-    "http://ec2-18-179-28-155.ap-northeast-1.compute.amazonaws.com/api/v1/like",
+    "http://18.179.28.155/api/v1/like",
     {
      post_id: post.id,
      user_id: this.uid,
@@ -50,7 +50,7 @@ export default {
   async unlike(post) {
    const findLike = post.likes.find((like) => like.user_id === this.uid);
    await this.$axios.delete(
-    `http://ec2-18-179-28-155.ap-northeast-1.compute.amazonaws.com/api/v1/like/${findLike.id}`
+    `http://18.179.28.155/api/v1/like/${findLike.id}`
    );
 
    const findLikeIdx = post.likes.findIndex(
@@ -59,7 +59,7 @@ export default {
    post.likes.splice(findLikeIdx, 1);
   },
   async deletePost(event) {
-   await this.$axios.delete(`http://ec2-18-179-28-155.ap-northeast-1.compute.amazonaws.com/api/v1/post/${event.id}`);
+   await this.$axios.delete(`http://18.179.28.155/api/v1/post/${event.id}`);
 
    const findPostIdx = this.posts.findIndex((post) => post.id === event.id);
    this.posts.splice(findPostIdx, 1);
