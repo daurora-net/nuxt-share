@@ -51,6 +51,7 @@ export default {
       content: this.content,
      }
     );
+    console.log(data); // 追加
     this.content = "";
     this.$emit("shared", data.post);
     alert("シェアしました");
